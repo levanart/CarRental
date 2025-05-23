@@ -25,17 +25,17 @@ namespace CarRental.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetCars()
+        public async Task<ActionResult<List<GetAllCarResponse>>> GetCars()
         {
-            var request = new GetAllCarResponse();
+            var request = new GetAllCarRequest();
             var response = await _mediator.Send(request);
             return Ok(response);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> GetCarById(Guid id)
+        public async Task<ActionResult<GetCarByIdResponse>> GetCarById(Guid id)
         {
-            var request = new GetCarByIdResponse(){Id = id};
+            var request = new GetCarByIdRequest(id);
             var response = await _mediator.Send(request);
             return response == null ? NotFound() : Ok(response);
         }

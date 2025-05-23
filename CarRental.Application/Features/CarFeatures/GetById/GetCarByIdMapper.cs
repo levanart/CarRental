@@ -7,7 +7,6 @@ public class GetCarByIdMapper : Profile
 {
     public GetCarByIdMapper()
     {
-        CreateMap<GetCarByIdRequest, Car>();
         CreateMap<Car, GetCarByIdResponse>();
     }
 }

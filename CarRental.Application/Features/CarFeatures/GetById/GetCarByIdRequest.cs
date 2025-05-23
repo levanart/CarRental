@@ -3,4 +3,4 @@ using MediatR;
 
 namespace CarRental.Application.Features.CarFeatures.GetById;
 
-public record GetCarByIdRequest(Guid Id) : IRequest<IEnumerable<GetCarByIdResponse>>;
+public record GetCarByIdRequest(Guid Id) : IRequest<GetCarByIdResponse>;

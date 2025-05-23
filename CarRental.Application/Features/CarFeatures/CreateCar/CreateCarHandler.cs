@@ -1,10 +1,11 @@
 ﻿using AutoMapper;
 using CarRental.Application.Repositories;
 using CarRental.Domain.Entity;
+using MediatR;
 
 namespace CarRental.Application.Features.CarFeatures.CreateCar;
 
-public class CreateCarHandler
+public class CreateCarHandler :  IRequestHandler<CreateCarRequest, CreateCarResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly ICarRepository _carRepository;

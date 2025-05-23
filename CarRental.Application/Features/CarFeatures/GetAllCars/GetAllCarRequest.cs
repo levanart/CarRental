@@ -3,4 +3,4 @@ using MediatR;
 
 namespace CarRental.Application.Features.CarFeatures.GetAllCars;
 
-public record GetAllCarRequest() : IRequest<List<GetAllUserResponse>>, IRequest<IEnumerable<GetAllCarResponse>>;
+public record GetAllCarRequest() : IRequest<List<GetAllCarResponse>>;

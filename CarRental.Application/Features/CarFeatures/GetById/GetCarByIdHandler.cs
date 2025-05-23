@@ -4,7 +4,7 @@ using MediatR;
 
 namespace CarRental.Application.Features.CarFeatures.GetById;
 
-public sealed class GetCarByIdHandler : IRequestHandler<GetCarByIdRequest, IEnumerable<GetCarByIdResponse>>
+public sealed class GetCarByIdHandler : IRequestHandler<GetCarByIdRequest, GetCarByIdResponse>
 {
     private readonly ICarRepository _carRepository;
     private readonly IMapper _mapper;
@@ -15,11 +15,11 @@ public sealed class GetCarByIdHandler : IRequestHandler<GetCarByIdRequest, IEnum
         _mapper = mapper;
     }
 
-    public async Task<IEnumerable<GetCarByIdResponse>> Handle(
+    public async Task<GetCarByIdResponse> Handle(
         GetCarByIdRequest request, 
         CancellationToken cancellationToken)
     {
-        var cars = await _carRepository.GetAllAsync(cancellationToken);
-        return _mapper.Map<IEnumerable<GetCarByIdResponse>>(cars);
+        var cars = await _carRepository.GetById(request.Id,  cancellationToken);
+        return _mapper.Map<GetCarByIdResponse>(cars);
     }
 }
