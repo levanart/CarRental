@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CA97EE2A-E00C-408A-B718-D51FF01DAC7E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{381BC59A-4AF8-4152-AA7D-DA3369C2519E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{0FFEBA45-A45B-4A1E-80E2-1ADF73EE7073}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{0F3DBB3A-69EB-4BAB-953A-0F1E1CC7137E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Application", "CarRental.Application\CarRental.Application.csproj", "{324B923A-D272-40C9-9D83-2DC4D45B1378}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Domain", "CarRental.Domain\CarRental.Domain.csproj", "{6FF639BB-E257-4C81-85EF-AD087EC12D5C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Persistence", "CarRental.Persistence\CarRental.Persistence.csproj", "{0C670B77-9DFA-41D5-93B7-34C9B1A141C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.WebApi", "CarRental.WebApi\CarRental.WebApi.csproj", "{E9C588BE-1030-4564-8129-389FE3A737B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarRental.Test", "CarRental.Test\CarRental.Test.csproj", "{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{324B923A-D272-40C9-9D83-2DC4D45B1378} = {CA97EE2A-E00C-408A-B718-D51FF01DAC7E}
+		{6FF639BB-E257-4C81-85EF-AD087EC12D5C} = {CA97EE2A-E00C-408A-B718-D51FF01DAC7E}
+		{0C670B77-9DFA-41D5-93B7-34C9B1A141C9} = {381BC59A-4AF8-4152-AA7D-DA3369C2519E}
+		{E9C588BE-1030-4564-8129-389FE3A737B3} = {0FFEBA45-A45B-4A1E-80E2-1ADF73EE7073}
+		{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C} = {0F3DBB3A-69EB-4BAB-953A-0F1E1CC7137E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{324B923A-D272-40C9-9D83-2DC4D45B1378}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{324B923A-D272-40C9-9D83-2DC4D45B1378}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{324B923A-D272-40C9-9D83-2DC4D45B1378}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{324B923A-D272-40C9-9D83-2DC4D45B1378}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FF639BB-E257-4C81-85EF-AD087EC12D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FF639BB-E257-4C81-85EF-AD087EC12D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FF639BB-E257-4C81-85EF-AD087EC12D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FF639BB-E257-4C81-85EF-AD087EC12D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C670B77-9DFA-41D5-93B7-34C9B1A141C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C670B77-9DFA-41D5-93B7-34C9B1A141C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C670B77-9DFA-41D5-93B7-34C9B1A141C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C670B77-9DFA-41D5-93B7-34C9B1A141C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9C588BE-1030-4564-8129-389FE3A737B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9C588BE-1030-4564-8129-389FE3A737B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9C588BE-1030-4564-8129-389FE3A737B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9C588BE-1030-4564-8129-389FE3A737B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF4A660E-DDC2-4A18-98B5-C6B53A2DC51C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

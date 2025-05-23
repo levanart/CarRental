@@ -1,0 +1,43 @@
+# Rider
+.idea/
+*.sln.iml
+
+# Visual Studio / .NET
+*.csproj.user
+*.suo
+*.cache
+*.docstates
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build
+bin/
+obj/
+out/
+artifacts/
+
+# NuGet
+packages/
+*.nupkg
+
+# Environment
+.env
+*.env
+*.env.*
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Tests
+test-results/
+coverage/
+
+# Other
+*.bak
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
