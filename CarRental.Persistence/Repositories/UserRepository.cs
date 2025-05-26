@@ -27,11 +27,6 @@ public class UserRepository :  BaseRepository<User>, IUserRepository
         return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
     }
 
-    public async Task<User> UpdateUser(UpdateUserRequest request, CancellationToken cancellationToken)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<User> DeleteUser(User userToDelete, CancellationToken cancellationToken)
     {
         _context.Users.Remove(userToDelete);

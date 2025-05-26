@@ -54,7 +54,7 @@ namespace CarRental.WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<UpdateUserResponse>> UpdateApartment(
+        public async Task<ActionResult<UpdateUserResponse>> UpdateUser(
             Guid id, [FromBody] UpdateUserRequest updateRequest, CancellationToken cancellationToken)
         {
             var updatedRequest = updateRequest with { UserId = id };

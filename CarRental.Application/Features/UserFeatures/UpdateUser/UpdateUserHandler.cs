@@ -8,22 +8,23 @@ namespace CarRental.Application.Features.UserFeatures.UpdateUser;
 public sealed class UpdateUserHandler : IRequestHandler<UpdateUserRequest, UpdateUserResponse>
 {
     private readonly IUnitOfWork _unitOfWork;
-    private readonly ICarRepository _carRepository;
+    private readonly IUserRepository _userRepository;
     private readonly IMapper _mapper;
     
-    public UpdateUserHandler(IUnitOfWork unitOfWork, ICarRepository carRepository, IMapper mapper)
+    public UpdateUserHandler(IUnitOfWork unitOfWork, IUserRepository userRepository, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
-        _carRepository = carRepository;
+        _userRepository = userRepository;
         _mapper = mapper;
     }
     
     public async Task<UpdateUserResponse> Handle(UpdateUserRequest request, CancellationToken cancellationToken)
     {
-        var carToUpdate = await _carRepository.GetById(request.UserId,  cancellationToken);
-        if (carToUpdate == null) throw new NotFoundException($"Car with id {request.UserId} not found");
-        _mapper.Map(request, carToUpdate);
-        carToUpdate.DateUpdated = DateTime.UtcNow;
-        return _mapper.Map<UpdateUserResponse>(carToUpdate);
+        var userToUpdate = await _userRepository.GetById(request.UserId,  cancellationToken);
+        if (userToUpdate == null) throw new NotFoundException($"User with id {request.UserId} not found");
+        _mapper.Map(request, userToUpdate);
+        userToUpdate.DateUpdated = DateTime.UtcNow;
+        await _unitOfWork.Save(cancellationToken);
+        return _mapper.Map<UpdateUserResponse>(userToUpdate);
     }
 }
