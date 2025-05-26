@@ -6,4 +6,4 @@ public sealed record CreateUserRequest(
     string Username,
     string Password,
     string Email,
-    string Phone) : IRequest<CreateUserResponse>;
+    string PhoneNumber) : IRequest<CreateUserResponse>;

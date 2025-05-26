@@ -26,7 +26,7 @@ namespace CarRental.WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult> GetUsers()
         {
-            var request = new GetAllUserResponse();
+            var request = new GetAllUserRequest();
             var response = await _mediator.Send(request);
             return Ok(response);
         }
