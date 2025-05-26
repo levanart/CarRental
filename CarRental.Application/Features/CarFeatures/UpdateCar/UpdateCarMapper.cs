@@ -7,13 +7,10 @@ public class UpdateCarMapper : Profile
 {
     public UpdateCarMapper()
     {
-        
-        
         CreateMap<UpdateCarRequest, Car>()
-            .ForAllMembers(opts => 
+            .ForAllMembers(opts =>
                 opts.Condition((src, dest, srcMember) => srcMember != null));
-        
-        
+
         CreateMap<Car, UpdateCarResponse>();
     }
 }

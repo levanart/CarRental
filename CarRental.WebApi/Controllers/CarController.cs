@@ -1,6 +1,8 @@
 ﻿using CarRental.Application.Features.CarFeatures.CreateCar;
+using CarRental.Application.Features.CarFeatures.DeleteCar;
 using CarRental.Application.Features.CarFeatures.GetAllCars;
 using CarRental.Application.Features.CarFeatures.GetById;
+using CarRental.Application.Features.CarFeatures.UpdateCar;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,6 +40,24 @@ namespace CarRental.WebApi.Controllers
             var request = new GetCarByIdRequest(id);
             var response = await _mediator.Send(request);
             return response == null ? NotFound() : Ok(response);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<DeleteCarResponse>> DeleteCar(Guid id)
+        {
+            var request = new DeleteCarRequest(id);
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<UpdateCarResponse>> UpdateCar(
+            Guid id, [FromBody] UpdateCarRequest updateRequest, CancellationToken cancellationToken)
+        {
+            var updatedRequest = updateRequest with { CarId = id };
+
+            var response = await _mediator.Send(updatedRequest, cancellationToken);
+            return Ok(response);
         }
     }
 }
