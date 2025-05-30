@@ -23,7 +23,7 @@ public class DeleteCarHandler :  IRequestHandler<DeleteCarRequest, DeleteCarResp
     {
         var car = await _carRepository.GetById(request.Id, cancellationToken);
         if (car == null) throw new NotFoundException($"Car with Id: {request.Id} not found!");
-        _carRepository.DeleteCar(car, cancellationToken);
+        _carRepository.Delete(car, cancellationToken);
         await _unitOfWork.Save(cancellationToken);
         return _mapper.Map<DeleteCarResponse>(car);
     }

@@ -5,7 +5,7 @@ namespace CarRental.Application.Repositories;
 
 public interface ICarRepository : IBaseRepository<Car>
 {
-    Task<List<Car>> GetByBrandAdnModel(string brand,
+  Task<List<Car>> GetByBrandAdnModel(string brand,
         string model,
         CancellationToken cancellationToken);
     
@@ -16,8 +16,5 @@ public interface ICarRepository : IBaseRepository<Car>
         CancellationToken cancellationToken);
     
     Task<List<Car>> GetGreaterReleaseYear(int releaseYear,
-        CancellationToken cancellationToken);
-
-    Car DeleteCar(Car carToDelete,
         CancellationToken cancellationToken);
 }

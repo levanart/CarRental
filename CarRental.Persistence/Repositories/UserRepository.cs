@@ -1,5 +1,4 @@
-﻿using CarRental.Application.Features.UserFeatures.UpdateUser;
-using CarRental.Application.Repositories;
+﻿using CarRental.Application.Repositories;
 using CarRental.Domain.Entity;
 using CarRental.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +10,8 @@ public class UserRepository :  BaseRepository<User>, IUserRepository
     public UserRepository(CarRentalDbContext context) : base(context)
     {
     }
+    
+    
 
     public async Task<User?> GetByEmailAsync(string email, CancellationToken cancellationToken)
     {
@@ -25,11 +26,5 @@ public class UserRepository :  BaseRepository<User>, IUserRepository
     public async Task<User?> GetByUsernameAsync(string username, CancellationToken cancellationToken)
     {
         return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
-    }
-
-    public async Task<User> DeleteUser(User userToDelete, CancellationToken cancellationToken)
-    {
-        _context.Users.Remove(userToDelete);
-        return userToDelete;
     }
 }

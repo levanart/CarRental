@@ -23,7 +23,7 @@ public class DeleteUserHandler :  IRequestHandler<DeleteUserRequest, DeleteUserR
     {
         var user = await _userRepository.GetById(request.Id, cancellationToken);
         if (user == null) throw new NotFoundException($"User  with Id: {request.Id} not found!");
-        await _userRepository.DeleteUser(user, cancellationToken);
+        _userRepository.Delete(user, cancellationToken);
         await _unitOfWork.Save(cancellationToken);
         return _mapper.Map<DeleteUserResponse>(user);
     }

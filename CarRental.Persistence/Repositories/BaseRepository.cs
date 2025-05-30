@@ -15,9 +15,9 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         _context = context;
     }
     
-    public void Create(T entity)
+    public async Task Create(T entity, CancellationToken cancellationToken)
     {
-        _context.Add(entity);
+        await _context.AddAsync(entity);
     }
 
     public void Update(T entity)
@@ -25,7 +25,7 @@ public class BaseRepository<T> : IBaseRepository<T> where T : BaseEntity
         _context.Update(entity);
     }
 
-    public void Delete(T entity)
+    public void Delete(T entity, CancellationToken cancellationToken)
     {
         entity.DateDeleted = DateTime.UtcNow;
         entity.IsDeleted = true;

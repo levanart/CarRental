@@ -21,7 +21,7 @@ public class CreateCarHandler :  IRequestHandler<CreateCarRequest, CreateCarResp
     public async Task<CreateCarResponse> Handle(CreateCarRequest request, CancellationToken cancellationToken)
     {
         var car = _mapper.Map<Car>(request);
-        _carRepository.Create(car);
+        await _carRepository.Create(car, cancellationToken);
         await _unitOfWork.Save(cancellationToken);
         return _mapper.Map<CreateCarResponse>(car);
     }

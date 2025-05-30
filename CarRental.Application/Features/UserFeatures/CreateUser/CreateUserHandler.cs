@@ -21,7 +21,7 @@ public class CreateUserHandler : IRequestHandler<CreateUserRequest, CreateUserRe
     public async Task<CreateUserResponse> Handle(CreateUserRequest request, CancellationToken cancellationToken)
     {
         var user = _mapper.Map<User>(request);
-        _userRepository.Create(user);
+        _userRepository.Create(user, cancellationToken);
         await _unitOfWork.Save(cancellationToken);
         return _mapper.Map<CreateUserResponse>(user);
     }

@@ -4,9 +4,9 @@ namespace CarRental.Application.Repositories;
 
 public interface IBaseRepository<T> where T : BaseEntity
 {
-    void Create(T entity);
+    Task Create(T entity, CancellationToken cancellationToken);
     void Update(T entity);
-    void Delete(T entity);
+    void Delete(T entity, CancellationToken cancellationToken);
     Task<T?> GetById(Guid id, CancellationToken cancellationToken);
     Task<List<T>> GetAllAsync(CancellationToken cancellationToken);
 }
