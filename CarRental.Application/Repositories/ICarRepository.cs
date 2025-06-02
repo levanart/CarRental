@@ -1,5 +1,4 @@
-﻿using CarRental.Application.Features.CarFeatures.UpdateCar;
-using CarRental.Domain.Entity;
+﻿using CarRental.Domain.Entity;
 
 namespace CarRental.Application.Repositories;
 

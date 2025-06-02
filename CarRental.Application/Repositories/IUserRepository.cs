@@ -1,6 +1,4 @@
-﻿using CarRental.Application.Features.CarFeatures.DeleteCar;
-using CarRental.Application.Features.UserFeatures.UpdateUser;
-using CarRental.Domain.Entity;
+﻿using CarRental.Domain.Entity;
 
 namespace CarRental.Application.Repositories;
 

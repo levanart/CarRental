@@ -1,10 +1,10 @@
-using CarRental.Application.Features.CarFeatures.DeleteCar;
-using CarRental.Application.Features.CarFeatures.GetById;
-using CarRental.Application.Features.CarFeatures.UpdateCar;
 using CarRental.Application.Features.UserFeatures.CreateUser;
 using CarRental.Application.Features.UserFeatures.DeleteUser;
 using CarRental.Application.Features.UserFeatures.GetAllUsers;
+using CarRental.Application.Features.UserFeatures.GetByEmail;
 using CarRental.Application.Features.UserFeatures.GetById;
+using CarRental.Application.Features.UserFeatures.GetByPhone;
+using CarRental.Application.Features.UserFeatures.GetByUsername;
 using CarRental.Application.Features.UserFeatures.UpdateUser;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -37,10 +37,34 @@ namespace CarRental.WebApi.Controllers
             return Ok(response);
         }
         
-        [HttpGet("{id}")]
+        [HttpGet("id/{id}")]
         public async Task<ActionResult<GetUserByIdResponse>> GetUserById(Guid id)
         {
             var request = new GetUserByIdRequest(id);
+            var response = await _mediator.Send(request);
+            return response == null ? NotFound() : Ok(response);
+        }
+        
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<GetUserByEmailResponse>> GetUserByEmail(string email)
+        {
+            var request = new GetUserByEmailRequest(email);
+            var response = await _mediator.Send(request);
+            return response == null ? NotFound() : Ok(response);
+        }
+        
+        [HttpGet("phone/{phone}")]
+        public async Task<ActionResult<GetUserByPhoneResponse>> GetUserByPhone(string phone)
+        {
+            var request = new GetUserByPhoneRequest(phone);
+            var response = await _mediator.Send(request);
+            return response == null ? NotFound() : Ok(response);
+        }
+        
+        [HttpGet("username/{username}")]
+        public async Task<ActionResult<GetUserByUsernameResponse>> GetUserByUsername(string username)
+        {
+            var request = new GetUserByUsernameRequest(username);
             var response = await _mediator.Send(request);
             return response == null ? NotFound() : Ok(response);
         }
