@@ -177,29 +177,31 @@ public class Tests
     }
 
 
-// [Test]
-    // public async Task DeleteUser()
-    // {
-    //     var email = "user6@example.com";
-    //     var password = "DeleteMePass123!";
-    //     var username = "user6";
-    //     var phoneNumber = "+66778899001";
-    //     
-    //     var user = new User
-    //     {
-    //         Email = email,
-    //         Password = password,
-    //         Username = username,
-    //         PhoneNumber = phoneNumber
-    //     };
-    //     
-    //     await _context.Users.AddAsync(user);
-    //     await _context.SaveChangesAsync();
-    //     
-    //     var result = await _userRepository.GetByUsernameAsync(username, CancellationToken.None);
-    //     await _userRepository.DeleteUser(result, CancellationToken.None);
-    //     var deletedUser = await _userRepository.GetByEmailAsync(email, CancellationToken.None);
-    //     
-    //     Assert.That(deletedUser, Is.EqualTo(new User()));
-    // }
+    [Test]
+    public async Task DeleteUser()
+    {
+        var email = "user6@example.com";
+        var password = "DeleteMePass123!";
+        var username = "user6";
+        var phoneNumber = "+66778899001";
+
+        var user = new User
+        {
+            Email = email,
+            Password = password,
+            Username = username,
+            PhoneNumber = phoneNumber
+        };
+
+        await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync();
+
+        Assert.That(_context.Users.Count(), Is.EqualTo(1));
+        var result = await _userRepository.GetByUsernameAsync(username, CancellationToken.None);
+        _userRepository.Delete(result, CancellationToken.None);
+        await _context.SaveChangesAsync();
+        
+        var res2 =  await _userRepository.GetByEmailAsync(email, CancellationToken.None);
+        Assert.That(res2, Is.Null);
+    }
 }

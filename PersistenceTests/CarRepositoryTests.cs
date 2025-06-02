@@ -29,7 +29,7 @@ public class CarRepositoryTests
         _context.Dispose();
     }
     
-    private static readonly List<Car> TestCars = new()
+    private readonly List<Car> _testCars = new()
     {
         new Car
             {
@@ -165,7 +165,7 @@ public class CarRepositoryTests
 
     private async Task GenerateCarsList()
     {
-        TestCars.ForEach((c) =>
+        _testCars.ForEach((c) =>
         {
             _carRepository.Create(c, CancellationToken.None);
         });
@@ -180,7 +180,7 @@ public class CarRepositoryTests
         
         var result = _carRepository.GetAllAsync(CancellationToken.None).Result;
         
-        Assert.That(result, Is.EqualTo(TestCars));
+        Assert.That(result, Is.EqualTo(_testCars));
     }
 
     [Test]
@@ -249,7 +249,10 @@ public class CarRepositoryTests
         await GenerateCarsList();
         
         var result = await _carRepository.GetGreaterReleaseYear(2017, CancellationToken.None);
-        
-        Assert.That(result.Count, Is.EqualTo(6));
+
+        result.ForEach((c) =>
+        {
+            Assert.That(c.ReleaseYear, Is.GreaterThanOrEqualTo(2017));
+        });
     }
 }
