@@ -25,4 +25,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
         
       - name: Тесты
-        run: dotnet build --no-build --configuration-Release --logger "console;verbosity=normal"
+        run: dotnet build --no-build --configuration Release --logger "console;verbosity=normal"
