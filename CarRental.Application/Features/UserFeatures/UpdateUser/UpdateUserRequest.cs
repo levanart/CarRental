@@ -8,4 +8,4 @@ public sealed record UpdateUserRequest(
     string? Email,
     string? Password,
     string? PhoneNumber
-    ) : IRequest<UpdateUserResponse>;
+) : IRequest<UpdateUserResponse>;

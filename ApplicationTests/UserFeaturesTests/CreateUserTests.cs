@@ -4,10 +4,10 @@ using CarRental.Application.Repositories;
 using CarRental.Domain.Entity;
 using Moq;
 
-namespace ApplicationTests;
+namespace ApplicationTests.UserFeaturesTests;
 
 [TestFixture]
-public class Tests
+public class CreateUserTests
 {
     private Mock<IUserRepository> _userRepository;
     private Mock<IUnitOfWork> _unitOfWork;
@@ -32,7 +32,7 @@ public class Tests
     public async Task Handle_ValidRequest_ShouldCreateNewUser()
     {
         var request = new CreateUserRequest("User1", "1234qwerty", "email@fads.com", "798565153");
-    
+        
         _unitOfWork.Setup(user => user.Save(CancellationToken.None)).Returns(Task.CompletedTask);
         
         var response = await _handler.Handle(request, CancellationToken.None);
