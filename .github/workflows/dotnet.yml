@@ -1,0 +1,28 @@
+﻿name: .NET CI for CarRental
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Клонирование репозитория
+        uses: actions/checkout@v3
+
+      - name: Установка .net SDK
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: "9.x.x"
+
+      - name: Восстановление зависимостей
+        uses: dotnet restore
+
+      - name: Сборка решения
+        uses: dotnet build --no-restore --configuration-Release
+        
+      - name: Тесты
+        uses: dotnet build --no-build --configuration-Release --logger "console;verbosity=normal"
