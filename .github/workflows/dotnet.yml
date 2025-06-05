@@ -22,7 +22,7 @@ jobs:
         run: dotnet restore
 
       - name: Сборка решения
-        run: dotnet build --no-restore --configuration-Release
+        run: dotnet build --no-restore --configuration Release
         
       - name: Тесты
         run: dotnet build --no-build --configuration-Release --logger "console;verbosity=normal"
