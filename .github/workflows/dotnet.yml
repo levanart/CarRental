@@ -19,10 +19,10 @@ jobs:
           dotnet-version: "9.x.x"
 
       - name: Восстановление зависимостей
-        uses: dotnet restore
+        run: dotnet restore
 
       - name: Сборка решения
-        uses: dotnet build --no-restore --configuration-Release
+        run: dotnet build --no-restore --configuration-Release
         
       - name: Тесты
-        uses: dotnet build --no-build --configuration-Release --logger "console;verbosity=normal"
+        run: dotnet build --no-build --configuration-Release --logger "console;verbosity=normal"
