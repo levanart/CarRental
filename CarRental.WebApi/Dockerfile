@@ -2,12 +2,15 @@
 USER $APP_UID
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
+EXPOSE 8082
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["CarRental.WebApi/CarRental.WebApi.csproj", "CarRental.WebApi/"]
+COPY ["CarRental.Application/CarRental.Application.csproj", "CarRental.Application/"]
+COPY ["CarRental.Domain/CarRental.Domain.csproj", "CarRental.Domain/"]
+COPY ["CarRental.Persistence/CarRental.Persistence.csproj", "CarRental.Persistence/"]
 RUN dotnet restore "CarRental.WebApi/CarRental.WebApi.csproj"
 COPY . .
 WORKDIR "/src/CarRental.WebApi"
